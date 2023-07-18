@@ -1,4 +1,5 @@
 import requests
+import config as cfg
 
 
 def get_weather(city):

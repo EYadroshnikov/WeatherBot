@@ -1,6 +1,6 @@
 import requests
 import datetime
-
+import config as cfg
 import getData
 
 
