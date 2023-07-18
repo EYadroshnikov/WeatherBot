@@ -4,8 +4,8 @@ import config as cfg
 import getData
 
 
-def invalid_city(message):
-    return f"Город {message.text} не найден, попробуйте другой"
+def invalid_city(city):
+    return f"Город {city} не найден, попробуйте другой"
     # bot.send_message(message.chat.id, f"Город {message.text} не найден, попробуйте другой")
 
 
@@ -35,12 +35,13 @@ def weather_emodzy(city):
         return "🌫"
 
 
-def weather(message):
-    data = getData.get_weather(message.text)
+def weather(city):
+    data = getData.get_weather(city)
+
     if data['cod'] != 200:
-        return invalid_city(message), data['cod']
+        return invalid_city(city), data['cod']
     else:
-        return f"* ---------- {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')} ---------- *\n" \
+        return f" ---------- {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')} ---------- \n" \
                f"{weather_emodzy(data['name'])} Погода в г. {data['name']}: {data['weather'][0]['description']} {weather_emodzy(data['name'])}\n" \
                f"🌡 Температура: {data['main']['temp']}°C ({data['main']['feels_like']}°C) 🌡\n " \
                f"💧 Влажность: {data['main']['humidity']}% 💧\n" \
