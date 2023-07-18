@@ -15,25 +15,22 @@ def weather_emodzy(city):
     json = r.json()
     des = json["weather"][0]["description"]
     # print(des)
-    if des == "clear sky":
-        return "☀"
-    elif des == "few clouds" or "broken clouds":
-        return "⛅"
-    elif des == "scattered clouds":
-        return "☁"
-    elif des == "overcast clouds":
-        return "☁"
-    elif des == "shower rain":
-        return "🌧"
-    elif des == "light rain" or "moderate rain":
-        return "🌦"
-    elif des == "thunderstorm":
-        return "⛈"
-    elif des == "snow":
-        return "❄"
-    elif des == "mist":
-        return "🌫"
 
+    weather_dict = {
+        "clear sky": "☀",
+        "few clouds": "⛅",
+        "broken clouds": "⛅",
+        "scattered cloudћs": "☁",
+        "overcast clouds": "☁",
+        "shower rain": "🌧",
+        "light rain": "🌦",
+        "moderate rain": "🌦",
+        "thunderstorm": "⛈",
+        "snow": "❄",
+        "mist": "🌫"
+    }
+
+    return weather_dict[des]
 
 def weather(city):
     data = getData.get_weather(city)
