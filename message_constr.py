@@ -20,7 +20,7 @@ def weather_emodzy(city):
         "clear sky": "☀",
         "few clouds": "⛅",
         "broken clouds": "⛅",
-        "scattered cloudћs": "☁",
+        "scattered clouds": "☁",
         "overcast clouds": "☁",
         "shower rain": "🌧",
         "light rain": "🌦",
